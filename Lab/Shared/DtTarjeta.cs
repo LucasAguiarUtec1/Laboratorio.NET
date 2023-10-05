@@ -10,10 +10,10 @@ namespace shared
     {
         // Atributos
 
-        public string NumeroTarjeta { get; set; }
-        public string Titular { get; set; }
-        public string FechaExpiracion { get; set; }
-        public string Cvv { get; set; }
+        public string numeroTarjeta { get; set; }
+        public string titular { get; set; }
+        public string fechaExpiracion { get; set; }
+        public string cvv { get; set; }
 
     }
 }
