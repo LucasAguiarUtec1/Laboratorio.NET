@@ -13,8 +13,8 @@ namespace shared
         public string apellido { get; set; }
         public string email { get; set; }
         public string contrasenia { get; set; }
-        public DtDirecciones[] direcciones { get; set; }
-        public DtMetodoDePago[] metodoDePagos { get; set; }
+        public Dictionary<string,DtDirecciones> direcciones { get; set; }
+        public Dictionary<string, DtMetodoDePago> metodoDePagos { get; set; }
     
     }
 }

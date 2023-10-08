@@ -1,15 +1,16 @@
-﻿using System;
+﻿using shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shared
+namespace Shared
 {
-    public class DtMetodoDePago
+    public class Sucursal
     {
-        // Atributos
         public int id { get; set; }
-        public string tipoMetodoPago { get; set; }
+        public DtDirecciones direccion { get; set; }
+
     }
 }

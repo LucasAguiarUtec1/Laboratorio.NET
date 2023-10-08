@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace shared
+namespace Shared
 {
-    public class DtMetodoDePago
+    public class Categoria
     {
-        // Atributos
         public int id { get; set; }
-        public string tipoMetodoPago { get; set; }
+        public string nombre { get; set; }
+
+        IDictionary<int, Producto> listaProductos { get;set }
     }
 }
