@@ -13,5 +13,6 @@ namespace Shared
         public IDictionary<int,Categoria> listaCategoria { get;set}
         public IDictionary<int, Producto> listaProducto { get; set}
         public IDictionary<int, Sucursal> listaSucursal { get; set}
+        public IDictionary<int, OrdenCompra> listaOrdenCompra { get; set}
     }
 }

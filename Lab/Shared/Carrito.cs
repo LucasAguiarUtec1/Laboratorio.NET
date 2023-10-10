@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shared
 {
-    internal class Carrito
+    public class Carrito
     {
+        public int id { get; set; }
+        public IDictionary<int, Producto> listaProductos { get; set }
     }
 }

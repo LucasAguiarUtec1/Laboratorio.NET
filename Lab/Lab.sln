@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Pagos", "API Pagos\API Pagos.csproj", "{CF579073-F21A-4486-9D5D-F3BA25C14851}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API Pagos", "API Pagos\API Pagos.csproj", "{CF579073-F21A-4486-9D5D-F3BA25C14851}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{E23B7618-C2E9-4118-8BC3-D3D02B8D6812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{E23B7618-C2E9-4118-8BC3-D3D02B8D6812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{CBCA26B0-BB38-4496-B9A8-B0A29F13B47B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E23B7618-C2E9-4118-8BC3-D3D02B8D6812}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E23B7618-C2E9-4118-8BC3-D3D02B8D6812}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E23B7618-C2E9-4118-8BC3-D3D02B8D6812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCA26B0-BB38-4496-B9A8-B0A29F13B47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCA26B0-BB38-4496-B9A8-B0A29F13B47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCA26B0-BB38-4496-B9A8-B0A29F13B47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCA26B0-BB38-4496-B9A8-B0A29F13B47B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

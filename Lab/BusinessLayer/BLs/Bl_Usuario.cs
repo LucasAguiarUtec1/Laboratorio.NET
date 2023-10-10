@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared
+namespace BusinessLayer.BLs
 {
-    public class Calificacion
+    internal class Bl_Usuario
     {
-        public int id { get; set; }
-        public int puntuacion { get; set; }
     }
 }

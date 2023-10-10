@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shared
 {
-    internal class OrdenCompra
+    public class OrdenCompra
     {
+        public int id {  get; set; }
+
     }
 }

@@ -11,6 +11,7 @@ namespace Shared
         public int id { get; set; }
         public string nombre { get; set; }
 
-        IDictionary<int, Producto> listaProductos { get;set }
+        public IDictionary<int, Producto> listaProductos { get;set }
+       
     }
 }

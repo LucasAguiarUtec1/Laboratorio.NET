@@ -9,12 +9,12 @@ namespace shared
     public class Usuario
     {
         // Atributos
+        public int id {get; set;}
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string email { get; set; }
         public string contrasenia { get; set; }
-        public Dictionary<string,DtDirecciones> direcciones { get; set; }
-        public Dictionary<string, DtMetodoDePago> metodoDePagos { get; set; }
+        
     
     }
 }
