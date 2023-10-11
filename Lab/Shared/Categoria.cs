@@ -8,7 +8,6 @@ namespace Shared
 {
     public class Categoria
     {
-        public int id { get; set; }
         public string nombre { get; set; }
 
         public IDictionary<int, Producto> listaProductos { get;set }

@@ -9,7 +9,6 @@ namespace shared
     public class DtTarjeta : DtMetodoDePago
     {
         // Atributos
-        public int id {  get; set; }
         public string numeroTarjeta { get; set; }
         public string titular { get; set; }
         public string fechaExpiracion { get; set; }

@@ -8,7 +8,6 @@ namespace Shared
 {
     internal class Empresa
     {
-        public int id { get; set; }
         public string nombre { get; set; }
         public IDictionary<int,Categoria> listaCategoria { get;set}
         public IDictionary<int, Producto> listaProducto { get; set}

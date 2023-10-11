@@ -9,7 +9,6 @@ namespace shared
     public class DtMetodoDePago
     {
         // Atributos
-        public int id { get; set; }
         public string tipoMetodoPago { get; set; }
     }
 }

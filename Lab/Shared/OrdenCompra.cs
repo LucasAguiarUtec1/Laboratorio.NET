@@ -8,7 +8,6 @@ namespace Shared
 {
     public class OrdenCompra
     {
-        public int id {  get; set; }
 
     }
 }

@@ -8,7 +8,7 @@ namespace Shared
 {
     public class Producto
     {
-        public int id { get; set; }
+
         public string titulo { get; set; }
         public string descripcion { get; set; }
         public byte[] imagen { get; set; }

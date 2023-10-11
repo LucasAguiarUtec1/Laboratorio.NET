@@ -8,7 +8,6 @@ namespace Shared
 {
     public class Calificacion
     {
-        public int id { get; set; }
         public int puntuacion { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace shared
     public class DtCriptomoneda : DtMetodoDePago
     {
         // Atributos
-        public int id { get; set; }
         public string direccionWallet { get; set; }
     }
 }
