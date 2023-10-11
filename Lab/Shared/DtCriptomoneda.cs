@@ -10,6 +10,6 @@ namespace shared
     {
         // Atributos
 
-        public string direccionWallet { get; set; }
+        public string direccionWallet { get; set; } = "";
     }
 }

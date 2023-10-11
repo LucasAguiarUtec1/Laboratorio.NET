@@ -10,9 +10,9 @@ namespace shared
     {
         // Atributos
 
-        public string direccion1 { get; set; }
-        public string direccion2 { get; set; }
-        public string nroPuerta { get; set; }
+        public string direccion1 { get; set; } = "";    
+        public string direccion2 { get; set; } = "";
+        public int nroPuerta { get; set; } = 000;
         
 
 

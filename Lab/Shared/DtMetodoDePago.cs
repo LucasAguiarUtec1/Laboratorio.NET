@@ -10,6 +10,6 @@ namespace shared
     {
         // Atributos
 
-       public string tipoMetodoPago { get; set; }
+       public string tipoMetodoPago { get; set; } = "";
     }
 }
