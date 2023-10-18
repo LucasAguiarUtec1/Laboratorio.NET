@@ -15,6 +15,6 @@ namespace Data_Access_Layer.EF_Models
         public long Id { get; set; }
 
         [MaxLength(100), MinLength(4), Required]
-        public string? DireccionWallet { get; set; } = "";
+        public string DireccionWallet { get; set; } = "";
     }
 }

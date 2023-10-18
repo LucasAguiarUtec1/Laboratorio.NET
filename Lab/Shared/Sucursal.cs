@@ -9,7 +9,7 @@ namespace Shared
 {
     public class Sucursal
     {
-        public DtDirecciones direccion { get; set; }
+        public DtDirecciones? direccion { get; set; }
 
     }
 }

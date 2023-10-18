@@ -50,7 +50,7 @@ namespace Data_Access_Layer.DALs
                     tipoMetodoPago = mP.MetodoDePago,
                 };
             }
-            return null;
+            return new DtMetodoDePago();
         }
 
         public void Insert(DtMetodoDePago metodoDePago)

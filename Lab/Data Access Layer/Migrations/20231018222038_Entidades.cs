@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data_Access_Layer.Migrations
 {
     /// <inheritdoc />
-    public partial class entidades : Migration
+    public partial class Entidades : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,6 +48,79 @@ namespace Data_Access_Layer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Criptomonedas",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DireccionWallet = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Criptomonedas", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Direcciones",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Direccion = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Direccion2 = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    NroPuerta = table.Column<int>(type: "int", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Direcciones", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MetodoDePagos",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MetodoDePago = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MetodoDePagos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Productos",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Codigo = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Titulo = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Imagen = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Productos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tarjetas",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NumeroTarjeta = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Titular = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    FechaExpiracion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Cvv = table.Column<int>(type: "int", maxLength: 6, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tarjetas", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +286,21 @@ namespace Data_Access_Layer.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Criptomonedas");
+
+            migrationBuilder.DropTable(
+                name: "Direcciones");
+
+            migrationBuilder.DropTable(
+                name: "MetodoDePagos");
+
+            migrationBuilder.DropTable(
+                name: "Productos");
+
+            migrationBuilder.DropTable(
+                name: "Tarjetas");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

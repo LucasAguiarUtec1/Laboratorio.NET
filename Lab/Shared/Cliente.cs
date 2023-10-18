@@ -9,10 +9,11 @@ namespace Shared
 {
     public class Cliente : Usuario
     {
-        public Dictionary<string, DtDirecciones> direcciones { get; set; }
-        public Dictionary<string, DtMetodoDePago> metodoDePagos { get; set; }
-        public List<Calificacion> calificaciones { get; set; }
-        public Carrito carrito { get; set; }
-        public IDictionary<int, OrdenCompra> listaOrdenCompra { get; set}
+        public required Dictionary<string, DtDirecciones> Direcciones { get; set; }
+        public required Dictionary<string, DtMetodoDePago> MetodoDePagos { get; set; }
+        public required List<Calificacion> Calificaciones { get; set; }
+        public required Carrito? Carrito { get; set; }
+        public required IDictionary<int, OrdenCompra> ListaOrdenCompra1 { get; set; }
+
     }
 }

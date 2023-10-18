@@ -32,7 +32,7 @@ namespace Data_Access_Layer.DALs
         }
 
         public List<Producto> Get()
-        {
+        { 
             return _dbContext.Productos.Select(p => new Producto
             {
                 Codigo = p.Codigo,
@@ -57,7 +57,7 @@ namespace Data_Access_Layer.DALs
                     Imagen = p.Imagen,
                 };
             }
-            return null;
+            return new Producto();
         }
 
         public void Insert(Producto producto)

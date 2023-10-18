@@ -8,6 +8,6 @@ namespace Shared
 {
     public class Carrito
     {
-        public IDictionary<int, Producto> listaProductos { get; set }
+        public required IDictionary<int, Producto> ListaProductos { get; set; }
     }
 }

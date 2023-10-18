@@ -57,7 +57,7 @@ namespace Data_Access_Layer.DALs
                 };
             }
             
-            return null;
+            return new DtTarjeta();
         }
 
         public void Insert(DtTarjeta tarjeta)

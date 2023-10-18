@@ -56,7 +56,7 @@ namespace Data_Access_Layer.DALs
                 };
             }
 
-            return null;
+            return new DtDirecciones();
         }
 
         public void Insert(DtDirecciones direccion)

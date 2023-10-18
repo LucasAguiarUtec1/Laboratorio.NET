@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Shared
 {
-    internal class Empresa
+    public class Empresa
     {
-        public string nombre { get; set; }
-        public IDictionary<int,Categoria> listaCategoria { get;set}
-        public IDictionary<int, Producto> listaProducto { get; set}
-        public IDictionary<int, Sucursal> listaSucursal { get; set}
-        public IDictionary<int, OrdenCompra> listaOrdenCompra { get; set}
+        public string Direcciones { get; set; } = "";
+
+        public required IDictionary<int, Categoria> ListaCategoria1 { get; set; }
+
+        public required IDictionary<int, Producto> ListaProducto1{get; set;}
+         
+        public required IDictionary<int, Sucursal> ListaSucursal1{get; set;}
+         
+        public required IDictionary<int, OrdenCompra> ListaOrdenCompra1{get; set;}
+
     }
 }

@@ -34,16 +34,16 @@ namespace DataAccessLayer
             base.OnModelCreating(builder);
         }
 
-        public DbSet<Usuarios> Usuarios;
+        public DbSet<Usuarios> Usuarios { get; set; }
 
-        public DbSet<Productos> Productos;
+        public DbSet<Productos> Productos { get; set; }
 
-        public DbSet<DtTarjetas> Tarjetas;
+        public DbSet<DtTarjetas> Tarjetas { get; set; }
 
-        public DbSet<DtMetodoDePagos> MetodoDePagos;
+        public DbSet<DtMetodoDePagos> MetodoDePagos { get; set; }
 
-        public DbSet<DtDirecciones> Direcciones;
+        public DbSet<DtDirecciones> Direcciones { get; set; }
 
-        public DbSet<DtCriptomendas> Criptomonedas;
+        public DbSet<DtCriptomendas> Criptomonedas { get; set; }
     }
 }

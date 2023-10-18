@@ -51,7 +51,7 @@ namespace Data_Access_Layer.DALs
                     direccionWallet = c.DireccionWallet
                 };
             }
-            return null;
+            return new DtCriptomoneda();
         }
 
         public void Insert(DtCriptomoneda cripto)

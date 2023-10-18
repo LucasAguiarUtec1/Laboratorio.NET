@@ -16,15 +16,15 @@ namespace Data_Access_Layer.EF_Models
         public long Id { get; set; }
 
         [MaxLength(100), MinLength(4), Required]
-        public string? Codigo { get; set; } = "";
+        public string Codigo { get; set; } = "";
 
         [MaxLength(128), MinLength(3), Required]
-        public string? Titulo { get; set; } = "";
+        public string Titulo { get; set; } = "";
 
         [MaxLength(128), MinLength(3), Required]
-        public string? Descripcion { get; set; } = "";
+        public string Descripcion { get; set; } = "";
 
         [Required]
-        public  byte[]? Imagen { get; set; }
+        public required byte[] Imagen { get; set; }
     }
 }
