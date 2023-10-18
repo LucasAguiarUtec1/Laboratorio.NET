@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shared
 {
-    public class DtCriptomoneda : DtMetodoDePago
+    public class DtCriptomonedas : DtMetodoDePago
     {
         // Atributos
 
