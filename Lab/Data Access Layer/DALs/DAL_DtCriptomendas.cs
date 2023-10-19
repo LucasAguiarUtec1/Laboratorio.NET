@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Data_Access_Layer.DALs
 {
-    public class DAL_DtCriptomendas : IDAL_Criptomendas
+    public class DAL_DtCriptomendas : IDAL_DtCriptomonedas
     {
         DBContextCore _dbContext;
 
@@ -31,30 +31,30 @@ namespace Data_Access_Layer.DALs
             }
         }
 
-        public List<DtCriptomoneda> Get()
+        public List<DtCriptomonedas> Get()
         {
-            return _dbContext.Criptomonedas.Select(cripto => new DtCriptomoneda
+            return _dbContext.Criptomonedas.Select(cripto => new DtCriptomonedas
             {
                 direccionWallet = cripto.DireccionWallet
             })
             .ToList();
         }
 
-        public DtCriptomoneda get(string direccionWallet)
+        public DtCriptomonedas get(string direccionWallet)
         {
             var c = _dbContext.Criptomonedas.FirstOrDefault(cripto => cripto.DireccionWallet == direccionWallet);
 
             if(c != null)
             {
-                return new DtCriptomoneda
+                return new DtCriptomonedas
                 {
                     direccionWallet = c.DireccionWallet
                 };
             }
-            return new DtCriptomoneda();
+            return new DtCriptomonedas();
         }
 
-        public void Insert(DtCriptomoneda cripto)
+        public void Insert(DtCriptomonedas cripto)
         {
             var Cripto = new Data_Access_Layer.EF_Models.DtCriptomendas
             {
@@ -65,7 +65,7 @@ namespace Data_Access_Layer.DALs
             _dbContext.SaveChanges();
         }
 
-        public void Update(DtCriptomoneda cripto)
+        public void Update(DtCriptomonedas cripto)
         {
             var Cripto = _dbContext.Criptomonedas.FirstOrDefault(c => c.DireccionWallet ==  cripto.direccionWallet);
 

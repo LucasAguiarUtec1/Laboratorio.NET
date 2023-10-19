@@ -8,15 +8,15 @@ using System.Xml.Serialization;
 
 namespace Data_Access_Layer.IDALS
 {
-    public interface IDAL_Criptomendas
+    public interface IDAL_DtCriptomonedas
     {
-        List<DtCriptomoneda> Get();
+        List<DtCriptomonedas> Get();
 
-        DtCriptomoneda get(string direccionWallet);
+        DtCriptomonedas get(string direccionWallet);
 
-        void Insert(DtCriptomoneda cripto);
+        void Insert(DtCriptomonedas cripto);
 
-        void Update(DtCriptomoneda cripto);
+        void Update(DtCriptomonedas cripto);
 
         void Delete(string direccionWallet);
     }
