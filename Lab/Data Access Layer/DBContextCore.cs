@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Shared;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,24 +34,20 @@ namespace DataAccessLayer
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Carritos>()
-                .HasMany(c => c.ProductosEnCarrito)
-                .WithOne(p => p.Carrito)
-                .HasForeignKey(p => p.CarritoId);
+            builder.Entity<CategoriaProductos>()
+                .HasKey(cp => new { cp.ProductoId, cp.CategoriaId });
 
             builder.Entity<CategoriaProductos>()
-                .HasKey(cp => new { cp.CategoriaId, cp.ProductoId });
-
-            builder.Entity<CategoriaProductos>()
-                .HasOne(cp => cp.Categorias)
-                .WithMany(c => c.Productos)
-                .HasForeignKey(cp => cp.CategoriaId);
-
-            builder.Entity<CategoriaProductos>()
-                .HasOne(cp => cp.Productos)
+                .HasOne(pc => pc.Productos)
                 .WithMany(p => p.Categorias)
-                .HasForeignKey(cp => cp.ProductoId);
-            
+                .HasForeignKey(pc => pc.ProductoId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<CategoriaProductos>()
+                .HasOne(pc => pc.Categorias)
+                .WithMany(c => c.Productos)
+                .HasForeignKey(pc => pc.CategoriaId);
+
         }
 
         public DbSet<Usuarios> Usuarios { get; set; }
@@ -68,5 +65,9 @@ namespace DataAccessLayer
         public DbSet<Carritos> Carritos { get; set; }
 
         public DbSet<Categorias> Categorias { get; set; }
+
+        public DbSet<Sucursales> Sucursales { get; set; }
+
+        public DbSet<Empresas> Empresas { get; set; }
     }
 }

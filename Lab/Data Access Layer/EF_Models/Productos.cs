@@ -32,5 +32,8 @@ namespace Data_Access_Layer.EF_Models
         public virtual Carritos Carrito { get; set; }
         
         public virtual ICollection<CategoriaProductos> Categorias { get; set; }
+
+        public long EmpresaId {  get; set; }
+        public virtual Empresas Empresa { get; set; } = null!;
     }
 }

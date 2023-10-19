@@ -22,5 +22,11 @@ namespace Data_Access_Layer.EF_Models
 
         [MaxLength(100), MinLength(4), Required]
         public int NroPuerta { get; set; }
+
+        [Required]
+        public long SucursalId { get; set; }
+
+        [Required]
+        public Sucursales Sucursal { get; set; }
     }
 }

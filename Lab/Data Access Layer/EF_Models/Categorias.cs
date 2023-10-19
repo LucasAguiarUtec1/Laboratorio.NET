@@ -18,5 +18,8 @@ namespace Data_Access_Layer.EF_Models
         public string nombre { get; set; }
        
         public virtual ICollection<CategoriaProductos> Productos { get; set; }
+
+        public long EmpresaId { get; set; }
+        public virtual Empresas Empresa { get; set; } = null!;
     }
 }

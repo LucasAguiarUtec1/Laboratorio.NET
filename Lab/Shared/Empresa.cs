@@ -8,8 +8,6 @@ namespace Shared
 {
     public class Empresa
     {
-        public string Direcciones { get; set; } = "";
-
         public required IDictionary<int, Categoria> ListaCategoria1 { get; set; }
 
         public required IDictionary<int, Producto> ListaProducto1{get; set;}

@@ -35,6 +35,50 @@ namespace Data_Access_Layer.Migrations
                     b.ToTable("Carritos");
                 });
 
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.CategoriaProductos", b =>
+                {
+                    b.Property<long>("ProductoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("CategoriaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.HasKey("ProductoId", "CategoriaId");
+
+                    b.HasIndex("CategoriaId");
+
+                    b.ToTable("CategoriaProductos");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Categorias", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("EmpresaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("nombre")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.ToTable("Categorias");
+                });
+
             modelBuilder.Entity("Data_Access_Layer.EF_Models.DtCriptomendas", b =>
                 {
                     b.Property<long>("Id")
@@ -75,7 +119,13 @@ namespace Data_Access_Layer.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("int");
 
+                    b.Property<long>("SucursalId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("SucursalId")
+                        .IsUnique();
 
                     b.ToTable("Direcciones");
                 });
@@ -128,6 +178,24 @@ namespace Data_Access_Layer.Migrations
                     b.ToTable("Tarjetas");
                 });
 
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Empresas", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(124)
+                        .HasColumnType("nvarchar(124)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Empresas");
+                });
+
             modelBuilder.Entity("Data_Access_Layer.EF_Models.Productos", b =>
                 {
                     b.Property<long>("Id")
@@ -149,6 +217,9 @@ namespace Data_Access_Layer.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
+                    b.Property<long>("EmpresaId")
+                        .HasColumnType("bigint");
+
                     b.Property<byte[]>("Imagen")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
@@ -162,7 +233,32 @@ namespace Data_Access_Layer.Migrations
 
                     b.HasIndex("CarritoId");
 
+                    b.HasIndex("EmpresaId");
+
                     b.ToTable("Productos");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Sucursales", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("EmpresaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Ubicacion")
+                        .IsRequired()
+                        .HasMaxLength(124)
+                        .HasColumnType("nvarchar(124)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.ToTable("Sucursales");
                 });
 
             modelBuilder.Entity("Data_Access_Layer.EF_Models.Usuarios", b =>
@@ -363,6 +459,47 @@ namespace Data_Access_Layer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.CategoriaProductos", b =>
+                {
+                    b.HasOne("Data_Access_Layer.EF_Models.Categorias", "Categorias")
+                        .WithMany("Productos")
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Data_Access_Layer.EF_Models.Productos", "Productos")
+                        .WithMany("Categorias")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Categorias");
+
+                    b.Navigation("Productos");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Categorias", b =>
+                {
+                    b.HasOne("Data_Access_Layer.EF_Models.Empresas", "Empresa")
+                        .WithMany("Categorias")
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.DtDirecciones", b =>
+                {
+                    b.HasOne("Data_Access_Layer.EF_Models.Sucursales", "Sucursal")
+                        .WithOne("Direccion")
+                        .HasForeignKey("Data_Access_Layer.EF_Models.DtDirecciones", "SucursalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sucursal");
+                });
+
             modelBuilder.Entity("Data_Access_Layer.EF_Models.Productos", b =>
                 {
                     b.HasOne("Data_Access_Layer.EF_Models.Carritos", "Carrito")
@@ -371,7 +508,26 @@ namespace Data_Access_Layer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Data_Access_Layer.EF_Models.Empresas", "Empresa")
+                        .WithMany("Productos")
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Carrito");
+
+                    b.Navigation("Empresa");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Sucursales", b =>
+                {
+                    b.HasOne("Data_Access_Layer.EF_Models.Empresas", "Empresa")
+                        .WithMany("Sucursales")
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -428,6 +584,31 @@ namespace Data_Access_Layer.Migrations
             modelBuilder.Entity("Data_Access_Layer.EF_Models.Carritos", b =>
                 {
                     b.Navigation("ProductosEnCarrito");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Categorias", b =>
+                {
+                    b.Navigation("Productos");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Empresas", b =>
+                {
+                    b.Navigation("Categorias");
+
+                    b.Navigation("Productos");
+
+                    b.Navigation("Sucursales");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Productos", b =>
+                {
+                    b.Navigation("Categorias");
+                });
+
+            modelBuilder.Entity("Data_Access_Layer.EF_Models.Sucursales", b =>
+                {
+                    b.Navigation("Direccion")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 
 namespace Data_Access_Layer.EF_Models
 {
-    public class CategoriaProductos
+    public class Empresas
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
+
+        [MaxLength(124), MinLength(5), Required]
+        public string Nombre { get; set; }
         
-        [Required]
-        public long CategoriaId { get; set; }
-        [Required]
-        public Categorias Categorias { get; set; } = null!;
+        public virtual ICollection<Productos> Productos { get; set; }
+        
+        public virtual ICollection<Sucursales> Sucursales { get; set; }
 
-        [Required]
-        public long ProductoId { get; set; }
-
-        [Required]
-        public Productos Productos { get; set; } = null!;
+        public virtual ICollection<Categorias> Categorias { get; set; }
     }
 }
