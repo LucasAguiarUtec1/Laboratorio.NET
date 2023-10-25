@@ -16,7 +16,7 @@ namespace DataAccessLayer
 {
     public class DBContextCore : IdentityDbContext<Usuarios>
     {
-        private string _connectionString = "Server=localhost,1433;Database=laboratorio;User Id=sa;Password=Abc*123!;Encrypt=False;";
+        private string _connectionString = "Server=sqlserver,1433;Database=laboratorio;User Id=sa;Password=Abc*123!;Encrypt=False;";
 
         public DBContextCore()
         { }

@@ -26,7 +26,7 @@ namespace Data_Access_Layer.DALs
 
             if (p != null)
             {
-                _dbContext.Productos.Remove(p);
+                _dbContext.Carritos.Remove(p);
                 _dbContext.SaveChanges();
             }
         }
